@@ -13,15 +13,8 @@ import org.slf4j.LoggerFactory;
 @RequestMapping("/")
 public class OAuth2Controller {
 
-    private static final Logger logger = LoggerFactory.getLogger(OAuth2Controller.class);
-
-    @GetMapping
-    public ResponseEntity<String> home() {
-        return ResponseEntity.ok("Welcome home!");
-    }
-
     @GetMapping("/secured")
     public ResponseEntity<String> secured() {
-        return ResponseEntity.ok("Welcome to the secured resource!");
+        return ResponseEntity.ok("This is secured");
     }
 }
