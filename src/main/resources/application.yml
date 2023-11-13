@@ -1,4 +1,18 @@
+---
+# DEFAULT CONFIGURATION
 spring:
+  profiles:
+    default: local
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+---
+# LOCAL CONFIGURATION
+spring:
+  config:
+    activate:
+      on-profile: local
   datasource:
     url: jdbc:mysql://localhost:3306/cactus_core?useSSL=false&serverTimezone=UTC
     username: root
@@ -6,9 +20,21 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
-  flyway:
-    enabled: true
-    baseline-on-migrate: true
-    locations: classpath:db/migration
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 242969310078-jkoikm3564bcte1k6v2moonhheobqjf4.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
