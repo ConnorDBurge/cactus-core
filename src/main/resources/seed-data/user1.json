@@ -2,5 +2,6 @@
   "username": "user-1",
   "email": "user-1@gmail.com",
   "last_name": "user-1",
-  "first_name": "user-1"
+  "first_name": "user-1",
+  "refresh_token": "refresh-token-1"
 }

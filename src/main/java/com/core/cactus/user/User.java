@@ -26,4 +26,6 @@ public class User {
     private String firstName;
     @JsonProperty("last_name")
     private String lastName;
+    @JsonProperty("refresh_token")
+    private String refreshToken;
 }
