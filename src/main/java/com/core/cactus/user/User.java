@@ -1,5 +1,6 @@
 package com.core.cactus.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,4 +21,8 @@ public class User {
     private UUID id;
     private String username;
     private String email;
+    @JsonProperty("first_name")
+    private String firstName;
+    @JsonProperty("last_name")
+    private String lastName;
 }
