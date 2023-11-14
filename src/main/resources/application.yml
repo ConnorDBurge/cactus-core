@@ -3,6 +3,11 @@
 spring:
   profiles:
     default: local
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}}/${DATABASE_NAME}?useSSL=false&serverTimezone=UTC
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
     enabled: true
     baseline-on-migrate: true
@@ -17,6 +22,18 @@ spring:
             scope:
               - email
               - profile
+  docker:
+    compose:
+      enabled: false
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
 logging:
   level:
     org:
@@ -28,11 +45,10 @@ spring:
   config:
     activate:
       on-profile: local
-  datasource:
-    url: jdbc:mysql://localhost:3306/cactus_core?useSSL=false&serverTimezone=UTC
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  docker:
+    compose:
+      file: ./compose.yml
+      enabled: true
   jpa:
     hibernate:
       ddl-auto: create-drop

@@ -35,7 +35,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         return null;
     }
 
-    private void validateToken(String token) {
+    public static void validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             DecodedJWT jwt = JWT.require(algorithm).build().verify(token);

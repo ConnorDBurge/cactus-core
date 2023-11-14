@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   mysql-db:
+    container_name: cactus-core-db
     image: mysql:latest
     environment:
       MYSQL_DATABASE: cactus_core
